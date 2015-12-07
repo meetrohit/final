@@ -7,10 +7,39 @@
     <link rel="stylesheet" type="text/css" href="sweetalert.css">
     <link rel="stylesheet" type="text/css" href="animate.css">
     <style>
-        body {
-            margin: 0px;
+        button,
+        .button {
+            background-color: maroon;
+            color: white;
+            border: none;
+            box-shadow: none;
+            font-size: 17px;
+            font-weight: 500;
+            padding: 15px 35px;
+            margin: 15px 5px 0 5px;
+            cursor: pointer;
+            -vendor-animation-duration: 3s;
+            -vendor-animation-delay: 2s;
+            -vendor-animation-iteration-count: infinite;
             text-align: center;
+        }
+        
+        p {
+            display: block;
+            margin: 10px auto;
+            font-size: 17px;
+            font-weight: bold;
+            color: black;
+            line-height: 15px;
+        }
+        
+        body {
             background-color: darkseagreen;
+            height: 842px;
+            width: 595px;
+            /* to centre page on screen*/
+            margin-left: auto;
+            margin-right: auto
         }
         
         .dialog {
@@ -33,13 +62,6 @@
         
         .bWrapper {
             margin-top: 25px;
-        }
-        
-        .button {
-            text-decoration: none;
-            border: 1px solid;
-            border-radius: 10px;
-            padding: 5px;
         }
         
         .overlay {
@@ -99,7 +121,9 @@
             }
         }
 
+
         function showAlert() {
+            //swal("Here's a message!")
             //dialog.show("alert", "This is an alert");
             swal({
                 title: "Alert",
@@ -166,10 +190,6 @@
                 swal("You wrote: ", " " + inputValue, "success");
             });
         }
-
-        function showDemo() {
-
-        }
     </script>
 
 </head>
@@ -177,41 +197,18 @@
 
 <body>
 
-    <a href="https://github.com/meetrohit/final"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
 
-    <h1 class="animated tada" style="font-size: 50px; color: maroon;"> Dialogs </h1>
-    <br>
+    <h1 class="animated tada" style="font-size: 50px; color: maroon; text-align: center;"> Dialogs </h1>
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+    <div style="text-align: center;">
+        <p></p>
+        <button type="button" onclick="javascript:showAlert()" class="animated bounceInUp">Alert</button>
+        <p></p>
+        <button type="button" onclick="javascript:showConfirm()" class="animated bounceInUp">Confirm</button>
+        <p></p>
+        <button type="button" onclick="javascript:showPrompt()" class="animated bounceInUp">Prompt</button>
+    </div>
 
-    <a href='javascript:showAlert()' style=" text-align: center;
-            font-size: 30px;
-            border-style: solid;
-            width: 300px;
-            height: 80px;
-            background-color: aliceblue;"> Click me to get Alert </a>
-    <br>
-    <br>
-    <a href='javascript:showConfirm()' style=" text-align: center;
-            font-size: 30px;
-            border-style: solid;
-            width: 300px;
-            height: 80px;
-            background-color: aliceblue;"> Can you Confirm?</a>
-    <br>
-    <br>
-    <a href='javascript:showPrompt()' style=" text-align: center;
-            font-size: 30px;
-            border-style: solid;
-            width: 300px;
-            height: 80px;
-            background-color: aliceblue;"> Prompt </a>
-    <br>
-    <br>
-    <a href='javascript:showDemo()' style=" text-align: center;
-            font-size: 30px;
-            border-style: solid;
-            width: 300px;
-            height: 80px;
-            background-color: aliceblue;"> Click me for Demo </a>
 
 </body>
 
