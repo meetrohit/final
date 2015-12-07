@@ -1,6 +1,11 @@
 <html>
 
 <head>
+    <script src='jquery-1.11.3.js'></script>
+	<script src="js/sweetalert.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
     <style>
         body {
             margin: 0px;
@@ -13,7 +18,7 @@
             margin-top: -100px;
             padding: 5%;
             width: 90%;
-            box-shadow: 0px 0px 10px blue;
+            box-shadow: 0px 0px 10px;
             border-radius: 10px;
             text-align: center;
             opacity: 0;
@@ -39,7 +44,7 @@
             position: fixed;
             height: 100%;
             width: 100%;
-            background-color: rgba(0, 0, 0, .6);
+            background-color: darkseagreen;
             top: 0px;
         }
         
@@ -50,8 +55,6 @@
         }
     </style>
 
-    <script src='jquery-1.11.3.js'>
-    </script>
     <script>
         var dialog = {
             show: function (type, message, success, fail) {
