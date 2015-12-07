@@ -2,13 +2,15 @@
 
 <head>
     <script src='jquery-1.11.3.js'></script>
-	<script src="js/sweetalert.min.js"></script>
+    <script src="sweetalert.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="animate.css">
     <style>
         body {
             margin: 0px;
+            text-align: center;
+            background-color: darkseagreen;
         }
         
         .dialog {
@@ -98,10 +100,15 @@
         }
 
         function showAlert() {
-            dialog.show("alert", "This is an alert");
+            //dialog.show("alert", "This is an alert");
+            swal({
+                title: "Alert",
+                text: "This is the alert dialog",
+                confirmButtonText: "Ok"
+            });
         }
 
-        function showConfirm() {
+        /*function showConfirm() {
             var successCallback = function () {
                 alert("OK clicked")
             }
@@ -109,14 +116,59 @@
                 alert("Cancel clicked")
             }
             dialog.show("confirm", "This is an confirmation", successCallback, failureCallback);
+        }*/
+        function showConfirm() {
+            swal({
+                title: "Confirmation",
+                text: "This is the confirmation dialog!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Confirm!",
+                cancelButtonText: "Cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    swal({
+                        title: "Sweet! You clicked confirm!",
+                        text: "Thanks for confirmation!",
+                        imageUrl: "thumbs-up.jpg"
+                    });
+                } else {
+                    swal("Cancelled", "Cancel clicked", "error");
+                }
+            });
         }
 
-        function showPrompt() {
+        /*function showPrompt() {
             var successCallback = function () {
                 alert(dialog.value)
             }
             var failureCallback = function () {}
             dialog.show("prompt", "This is an prompt", successCallback, failureCallback);
+        }*/
+        function showPrompt() {
+
+            swal({
+                title: "Prompt Dialog",
+                text: "This is the prompt dialog",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: "slide-from-top",
+                inputPlaceholder: "Write something"
+            }, function (inputValue) {
+                if (inputValue === false) return false;
+                if (inputValue === "") {
+                    swal.showInputError("You need to write something!");
+                    return false
+                }
+                swal("You wrote: ", " " + inputValue, "success");
+            });
+        }
+
+        function showDemo() {
+
         }
     </script>
 
@@ -124,11 +176,42 @@
 
 
 <body>
-    <h1> Dialogs </h1>
 
-    <a href='javascript:showAlert()'> Alert </a>
-    <a href='javascript:showConfirm()'> Confirm </a>
-    <a href='javascript:showPrompt()'> Prompt </a>
+    <a href="https://github.com/meetrohit/final"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+    <h1 class="animated tada" style="font-size: 50px; color: maroon;"> Dialogs </h1>
+    <br>
+
+    <a href='javascript:showAlert()' style=" text-align: center;
+            font-size: 30px;
+            border-style: solid;
+            width: 300px;
+            height: 80px;
+            background-color: aliceblue;"> Click me to get Alert </a>
+    <br>
+    <br>
+    <a href='javascript:showConfirm()' style=" text-align: center;
+            font-size: 30px;
+            border-style: solid;
+            width: 300px;
+            height: 80px;
+            background-color: aliceblue;"> Can you Confirm?</a>
+    <br>
+    <br>
+    <a href='javascript:showPrompt()' style=" text-align: center;
+            font-size: 30px;
+            border-style: solid;
+            width: 300px;
+            height: 80px;
+            background-color: aliceblue;"> Prompt </a>
+    <br>
+    <br>
+    <a href='javascript:showDemo()' style=" text-align: center;
+            font-size: 30px;
+            border-style: solid;
+            width: 300px;
+            height: 80px;
+            background-color: aliceblue;"> Click me for Demo </a>
 
 </body>
 
